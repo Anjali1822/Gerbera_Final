@@ -13,7 +13,7 @@ st.write("""
 """)
 
 # Image
-st.image("flower.jpg", caption="Aerial image of flowers captured by drone", use_column_width=True)
+st.image("flower.jpg", caption="Aerial image of flowers captured by drone", width=700)
 
 # Thank you message with pop animation and center alignment
 st.write("""
