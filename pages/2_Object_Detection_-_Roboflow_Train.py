@@ -331,23 +331,10 @@ with st.form("project_access"):
 
 
  
-if (
-    uploaded_file_od is not None
-    and st.session_state.workspace_id is not None
-    and st.session_state.model_id is not None
-    and st.session_state.version_number is not None
-):
+if uploaded_file_od != None:
+    # User-selected image.
     image = Image.open(uploaded_file_od)
     uploaded_img = np.array(image)
     inferenced_img = uploaded_img.copy()
 
-    run_inference(
-        st.session_state.workspace_id,
-        st.session_state.model_id,
-        st.session_state.version_number,
-        uploaded_img,
-        inferenced_img
-    )
-else:
-    st.info("Please load a model and upload an image.")
-
+    run_inference(workspace_id, model_id, version_number, uploaded_img, inferenced_img)
