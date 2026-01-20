@@ -4,6 +4,7 @@ import cv2
 from PIL import Image
 from roboflow import Roboflow
 import pandas as pd
+import tempfile
 
 # --------------------------------------------------
 # DEFAULT VALUES
@@ -84,12 +85,21 @@ with st.form("project_access"):
 # --------------------------------------------------
 def run_inference(image_np):
     model = st.session_state.model
+def run_inference(image_np):
+    model = st.session_state.model
+
+    with tempfile.NamedTemporaryFile(delete=False, suffix=".jpg") as tmp:
+        Image.fromarray(image_np).save(tmp.name)
+        image_path = tmp.name
 
     result = model.predict(
-        image_np,
+        image_path,
         confidence=confidence_threshold,
         overlap=overlap_threshold
     ).json()
+
+    return result
+
 
     return result
 
