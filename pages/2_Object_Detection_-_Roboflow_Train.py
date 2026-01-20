@@ -104,8 +104,8 @@ def run_inference(image_np):
 
     result = model.predict(
         image_path,
-        confidence=confidence_threshold,
-        overlap=overlap_threshold
+        confidence=confidence_threshold/100,
+        overlap=overlap_threshold/100
     ).json()
 
     return result
