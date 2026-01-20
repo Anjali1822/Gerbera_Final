@@ -39,6 +39,18 @@ if 'private_api_key' not in st.session_state:
 if 'uploaded_file_od' not in st.session_state:
     st.session_state['uploaded_file_od'] = ""
 
+if "workspace_id" not in st.session_state:
+    st.session_state.workspace_id = None
+
+if "model_id" not in st.session_state:
+    st.session_state.model_id = None
+
+if "version_number" not in st.session_state:
+    st.session_state.version_number = None
+
+if "extracted_url" not in st.session_state:
+    st.session_state.extracted_url = None
+
 ##########
 #### Set up main app logic
 ##########
