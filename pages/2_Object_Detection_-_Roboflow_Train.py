@@ -192,7 +192,7 @@ def run_inference(workspace_id, model_id, version_number, uploaded_img, inferenc
 
     ## Subtitle.
     st.write("### Inferenced Image")    
-    st.image(inferenced_img, caption="Inferenced Image", use_column_width=700)
+    st.image(inferenced_img, caption="Inferenced Image", width=700)
 
     results_tab, json_tab, project_tab = st.tabs(["Inference Results", "JSON Response Output", "Project Info"])
 
